@@ -13,10 +13,19 @@ function Connection() {
 
   return (
     <div>
-      <button onClick={connectWallet}> Connect Wallet </button>
-      <button onClick={() => wallet.reset()}> Disconnect </button>
+      {
+        wallet.account ? ( 
+          <button onClick={() => wallet.reset()}> Disconnect </button> 
+      ) : ( 
+          <button onClick={connectWallet}> Connect Wallet </button> 
+      )}
+      
       <div>Account: {wallet.account}</div>
       <div>Balance: {wallet.balance}</div>
+      
+
+      
+      
     </div>
   )
 }
