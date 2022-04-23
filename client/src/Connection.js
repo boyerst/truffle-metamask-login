@@ -16,11 +16,13 @@ function Connection() {
       {
         wallet.account ? ( 
           <button onClick={() => wallet.reset()}> Disconnect </button> 
+
       ) : ( 
           <button onClick={connectWallet}> Connect Wallet </button> 
       )}
       
       <div>Account: {wallet.account}</div>
+      <div>Account: {wallet.account ? wallet.account.substring(0,6) : ''}...{wallet.account ? wallet.account.substring(38,42) : '0x0'}</div>
       <div>Balance: {wallet.balance}</div>
       
 
