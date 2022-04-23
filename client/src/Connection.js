@@ -18,31 +18,36 @@ function Connection() {
       {
         wallet.account ? ( 
           <button onClick={() => wallet.reset()}> Disconnect </button> 
-
-      ) : ( 
+        ) : ( 
           <button onClick={connectWallet}> Connect Wallet </button> 
       )}
+
       <div id="account">
+        Account:  
         <a target="_blank"
            alt=""
            text="blue"
            className="text-white"
            rel="noopener noreferrer"
            href={"https://etherscan.io/address/" + wallet.account}>
-          Account: {wallet.account ? wallet.account.substring(0,6) : ''}...{wallet.account ? wallet.account.substring(38,42) : '0x0'}
+          {wallet.account ? wallet.account.substring(0,6) : ''}...{wallet.account ? wallet.account.substring(38,42) : '0x0'}
         </a>
       </div>
 
-      <div>
-        Balance: {web3.utils.fromWei(wallet.balance, 'ether')} ETH  
-      </div>
-      
-
-      
-      
+      {
+        wallet.account? (
+          <div>
+            Balance: {web3.utils.fromWei(wallet.balance, 'ether')} ETH  
+          </div>
+        ) : (
+          <span></span>
+      )}
     </div>
+       
   )
 }
+
+
 
 // Wrap everything in <UseWalletProvider />
 export default () => (
