@@ -4,6 +4,8 @@ import getWeb3 from "./getWeb3";
 import Connection from './Connection'
 import Web3 from 'web3';
 
+
+
 import "./App.css";
 
 class App extends Component {

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useWallet, UseWalletProvider } from 'use-wallet'
 import Web3 from 'web3';
+import { Button } from 'react-bootstrap';
 
 function Connection() {
   const wallet = useWallet()
@@ -8,8 +9,6 @@ function Connection() {
   
   const connectWallet = async (e) => {
     e.preventDefault()
-    console.log("Connect button...")
-    console.log(wallet)
     await wallet.connect()    
   }
 
@@ -17,9 +16,9 @@ function Connection() {
     <div>
       {
         wallet.account ? ( 
-          <button onClick={() => wallet.reset()}> Disconnect </button> 
+          <Button variant="primary" onClick={() => wallet.reset()}> Disconnect </Button> 
         ) : ( 
-          <button onClick={connectWallet}> Connect Wallet </button> 
+          <Button variant="secondary" onClick={connectWallet}> Connect Wallet </Button> 
       )}
 
       {
@@ -30,7 +29,7 @@ function Connection() {
               <a target="_blank"
                  alt=""
                  text="blue"
-                 className="text-white"
+                 className=""
                  rel="noopener noreferrer"
                  href={"https://etherscan.io/address/" + wallet.account}>
                 {wallet.account ? wallet.account.substring(0,6) : ''}...{wallet.account ? wallet.account.substring(38,42) : '0x0'}
