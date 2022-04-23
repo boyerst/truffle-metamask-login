@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SimpleStorageContract from "./contracts/SimpleStorage.json";
 import getWeb3 from "./getWeb3";
 import Connection from './Connection'
+import Web3 from 'web3';
 
 import "./App.css";
 
@@ -51,11 +52,11 @@ class App extends Component {
 
   render() {
     if (!this.state.web3) {
-      return <div>Loading Web3, accounts, and contract...</div>;
+      return <div>Loading...</div>;
     }
     return (
       <div className="App">
-        <h1>Good to Go!</h1>
+        <h1>Dapp</h1>
         <Connection accounts={this.state.accounts} />
       </div>
     );
