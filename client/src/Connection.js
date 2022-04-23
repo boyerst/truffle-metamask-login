@@ -4,8 +4,9 @@ import { useWallet, UseWalletProvider } from 'use-wallet'
 function Connection() {
   const wallet = useWallet()
   
-  const connectWallet = async (event) => {
-    event.preventDefault()
+  const connectWallet = async (e) => {
+    e.preventDefault()
+    console.log("Connect button...")
     await wallet.connect()    
   }
 

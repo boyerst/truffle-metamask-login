@@ -56,7 +56,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Good to Go!</h1>
-        <Connection />
+        <Connection accounts={this.state.accounts} />
       </div>
     );
   }
