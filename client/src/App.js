@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SimpleStorageContract from "./contracts/SimpleStorage.json";
 import getWeb3 from "./getWeb3";
+import Connection from './Connection'
 
 import "./App.css";
 
@@ -55,7 +56,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Good to Go!</h1>
-
+        <Connection />
       </div>
     );
   }
