@@ -7,12 +7,16 @@ function Connection() {
   const connectWallet = async (e) => {
     e.preventDefault()
     console.log("Connect button...")
+    console.log(wallet)
     await wallet.connect()    
   }
 
   return (
     <div>
-      <button onClick={connectWallet}>Connect Wallet</button>
+      <button onClick={connectWallet}> Connect Wallet </button>
+      <button onClick={() => wallet.reset()}> Disconnect </button>
+      <div>Account: {wallet.account}</div>
+      <div>Balance: {wallet.balance}</div>
     </div>
   )
 }
