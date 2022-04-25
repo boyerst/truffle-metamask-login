@@ -16,8 +16,8 @@ function Connection() {
     <>
       {wallet.status === 'connected' ? ( 
       <div>
-        <Button variant="outline-secondary" onClick={() => wallet.reset()}> Disconnect </Button> 
-          <div>
+        <Button className="mt-4" variant="outline-secondary" onClick={() => wallet.reset()}> Disconnect </Button> 
+          <div className="mt-3" >
             Account: &nbsp;  
             <a target="_blank"
                alt=""
