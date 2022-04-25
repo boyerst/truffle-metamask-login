@@ -30,8 +30,12 @@ function Connection() {
           </div>
           Balance: {web3.utils.fromWei(wallet.balance, 'ether')} ETH  
       </div>
-      ) : ( 
-      <Button variant="outline-secondary" onClick={connectWallet}> Connect Wallet </Button> 
+      ) : (
+      <div>
+        <Button variant="outline-secondary" onClick={connectWallet}> Connect MetaMask </Button>
+        <Button variant="outline-secondary" onClick={connectWallet}> Connect Frame </Button>
+        <Button variant="outline-secondary" onClick={connectWallet}> Connect Portis </Button> 
+      </div>
       )}
     </>
   )
