@@ -13,35 +13,27 @@ function Connection() {
   }
 
   return (
-    <div>
-      {
-        wallet.account ? ( 
-          <Button variant="primary" onClick={() => wallet.reset()}> Disconnect </Button> 
-        ) : ( 
-          <Button variant="secondary" onClick={connectWallet}> Connect Wallet </Button> 
-      )}
-
-      {
-        wallet.account? (
+    <>
+      {wallet.status === 'connected' ? ( 
+      <div>
+        <Button variant="outline-secondary" onClick={() => wallet.reset()}> Disconnect </Button> 
           <div>
-            <div id="account">
-              Account: &nbsp;  
-              <a target="_blank"
-                 alt=""
-                 text="blue"
-                 className=""
-                 rel="noopener noreferrer"
-                 href={"https://etherscan.io/address/" + wallet.account}>
-                {wallet.account ? wallet.account.substring(0,6) : ''}...{wallet.account ? wallet.account.substring(38,42) : '0x0'}
-              </a>
-            </div>
-              Balance: {web3.utils.fromWei(wallet.balance, 'ether')} ETH  
+            Account: &nbsp;  
+            <a target="_blank"
+               alt=""
+               text="blue"
+               className=""
+               rel="noopener noreferrer"
+               href={"https://etherscan.io/address/" + wallet.account}>
+              {wallet.account ? wallet.account.substring(0,6) : ''}...{wallet.account ? wallet.account.substring(38,42) : '0x0'}
+            </a>
           </div>
-        ) : (
-          <span></span>
+          Balance: {web3.utils.fromWei(wallet.balance, 'ether')} ETH  
+      </div>
+      ) : ( 
+      <Button variant="outline-secondary" onClick={connectWallet}> Connect Wallet </Button> 
       )}
-    </div>
-       
+    </>
   )
 }
 
