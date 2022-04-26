@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import { useWallet, UseWalletProvider } from 'use-wallet'
 import Web3 from 'web3';
 import { Button } from 'react-bootstrap';
@@ -31,11 +31,11 @@ function Connection() {
           Balance: {web3.utils.fromWei(wallet.balance, 'ether')} ETH  
       </div>
       ) : (
-      <div>
+      <Fragment>
         <Button variant="outline-secondary" onClick={connectWallet}> Connect MetaMask </Button>
         <Button variant="outline-secondary" onClick={connectWallet}> Connect Frame </Button>
         <Button variant="outline-secondary" onClick={connectWallet}> Connect Portis </Button> 
-      </div>
+      </Fragment>
       )}
     </>
   )
