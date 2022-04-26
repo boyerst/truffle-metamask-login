@@ -15,20 +15,20 @@ function Connection() {
   return (
     <>
       {wallet.status === 'connected' ? ( 
-      <div className="nav justify-content-end">
-        <Button className="nav-item" variant="outline-secondary" onClick={() => wallet.reset()}> Disconnect </Button> 
-          <div className="nav-item" >
+      <div className="nav justify-content-end pe-5">
+          <div className="nav-item px-4" >
             Account: &nbsp;  
             <a target="_blank"
                alt=""
                text="blue"
-               className="nav-item"
+               className="nav-item pe-3"
                rel="noopener noreferrer"
                href={"https://etherscan.io/address/" + wallet.account}>
               {wallet.account ? wallet.account.substring(0,6) : ''}...{wallet.account ? wallet.account.substring(38,42) : '0x0'}
             </a>
-          </div>
             Balance: {web3.utils.fromWei(wallet.balance, 'ether')} ETH  
+          </div>
+        <Button className="nav-item" variant="outline-secondary" onClick={() => wallet.reset()}> Disconnect </Button> 
       </div>
       ) : (
       <>
