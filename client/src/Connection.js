@@ -15,9 +15,8 @@ function Connection() {
   return (
     <>
       {wallet.status === 'connected' ? ( 
-      <div className="nav justify-content-end pe-5">
-          <div className="nav-item px-4" >
-            Account: &nbsp;  
+      <div className="nav justify-content-end mt-3 pe-5">
+          <Button className="nav-item" variant="outline-secondary" > 
             <a target="_blank"
                alt=""
                text="blue"
@@ -27,12 +26,12 @@ function Connection() {
               {wallet.account ? wallet.account.substring(0,6) : ''}...{wallet.account ? wallet.account.substring(38,42) : '0x0'}
             </a>
             Balance: {web3.utils.fromWei(wallet.balance, 'ether')} ETH  
-          </div>
+          </Button>
         <Button className="nav-item" variant="primary" onClick={() => wallet.reset()}> Disconnect </Button> 
       </div>
       ) : (
       <>
-        <Button className="nav-item justify-content-end" variant="outline-secondary" onClick={connectWallet}> Connect MetaMask </Button>
+        <Button className="nav mt-3 ms-auto me-4 px-2" variant="outline-secondary" onClick={connectWallet}> Connect MetaMask </Button>
       </>
       )}
     </>
