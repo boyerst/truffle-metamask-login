@@ -2,6 +2,7 @@ import React, {Fragment} from 'react'
 import { useWallet, UseWalletProvider } from 'use-wallet'
 import Web3 from 'web3';
 import { Button } from 'react-bootstrap';
+import {ReactComponent as Wallet } from './wallet.svg'
 
 function Connection() {
   const wallet = useWallet()
@@ -15,8 +16,10 @@ function Connection() {
   return (
     <>
       {wallet.status === 'connected' ? ( 
-      <div className="nav justify-content-end mt-3 pe-5">
-          <Button className="nav-item" variant="outline-secondary" > 
+      <div className="nav justify-content-end mt-3 me-4">
+         {/*   <img src={wallet} width="50" height="50" ></img>*/}
+          <Button className="nav-item me-2" variant="outline-secondary" > 
+            <Wallet className="me-2" width="25" height="25"/>
             <a target="_blank"
                alt=""
                text="blue"
@@ -25,7 +28,7 @@ function Connection() {
                href={"https://etherscan.io/address/" + wallet.account}>
               {wallet.account ? wallet.account.substring(0,6) : ''}...{wallet.account ? wallet.account.substring(38,42) : '0x0'}
             </a>
-            Balance: {web3.utils.fromWei(wallet.balance, 'ether')} ETH  
+            {web3.utils.fromWei(wallet.balance, 'ether')} ETH  
           </Button>
         <Button className="nav-item" variant="primary" onClick={() => wallet.reset()}> Disconnect </Button> 
       </div>
