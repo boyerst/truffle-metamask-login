@@ -18,7 +18,7 @@ function Connection() {
       {wallet.status === 'connected' ? ( 
       <div className="nav justify-content-end mt-3 me-4">
          {/*   <img src={wallet} width="50" height="50" ></img>*/}
-          <Button className="nav-item me-2" variant="outline-secondary" > 
+          <Button className="nav-item me-2" size="sm" variant="outline-secondary" > 
             <Wallet className="me-2" width="25" height="25"/>
             <a target="_blank"
                alt=""
@@ -30,11 +30,11 @@ function Connection() {
             </a>
             {web3.utils.fromWei(wallet.balance, 'ether')} ETH  
           </Button>
-        <Button className="nav-item" variant="primary" onClick={() => wallet.reset()}> Disconnect </Button> 
+        <Button className="nav-item" size="sm" variant="primary" onClick={() => wallet.reset()}> Disconnect </Button> 
       </div>
       ) : (
       <>
-        <Button className="nav mt-3 ms-auto me-4 px-2" variant="outline-secondary" onClick={connectWallet}> Connect MetaMask </Button>
+        <Button className="nav mt-3 ms-auto me-4 px-2" size="sm" variant="outline-secondary" onClick={connectWallet}> Connect MetaMask </Button>
       </>
       )}
     </>
