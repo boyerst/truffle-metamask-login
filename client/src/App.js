@@ -58,7 +58,7 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <h1>Dapp</h1>
+
         <Connection accounts={this.state.accounts} />
       </div>
     );

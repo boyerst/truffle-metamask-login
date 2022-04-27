@@ -28,7 +28,7 @@ function Connection() {
             </a>
             Balance: {web3.utils.fromWei(wallet.balance, 'ether')} ETH  
           </div>
-        <Button className="nav-item" variant="outline-secondary" onClick={() => wallet.reset()}> Disconnect </Button> 
+        <Button className="nav-item" variant="primary" onClick={() => wallet.reset()}> Disconnect </Button> 
       </div>
       ) : (
       <>
@@ -52,3 +52,5 @@ export default () => (
     <Connection />
   </UseWalletProvider>
 )
+
+
