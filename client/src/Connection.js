@@ -1,4 +1,5 @@
 import React, {Fragment} from 'react'
+import './App.css'
 import { useWallet, UseWalletProvider } from 'use-wallet'
 import Web3 from 'web3';
 import { Button } from 'react-bootstrap';
@@ -32,10 +33,10 @@ function Connection() {
           </Button>
         <Button className="nav-item" size="sm" variant="primary" onClick={() => wallet.reset()}> Disconnect </Button> 
       </div>
-      ) : (
-      <>
-        <Button className="nav mt-3 ms-auto me-4 px-2" size="sm" variant="outline-secondary" onClick={connectWallet}> Connect MetaMask </Button>
-      </>
+      ) : (     
+      <div className="nav">
+        <Button className="nav-item mt-3 ms-auto me-4 px-2 rounded-6" size="sm" variant="outline-secondary" onClick={connectWallet}> Connect MetaMask </Button>
+      </div>
       )}
     </>
   )
